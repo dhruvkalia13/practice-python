@@ -1,0 +1,21 @@
+from customlinkedlist.CustomLinkedList import CustomLinkedList
+obj = CustomLinkedList()
+list = CustomLinkedList()
+# obj.insert(list, 4)
+obj.insert(list, 6)
+obj.insert(list, 7)
+obj.insert(list, 8)
+obj.printList(list)
+print("Enter item to remove from list")
+obj.remove(list, int(input()))
+obj.printList(list)
+# obj.removeAll(list)
+# obj.printList(list)
+print("Length of list is %d " % obj.length(list))
+print("Enter item whose position you need")
+item = int(input())
+pos = obj.find(list, item)
+if pos is -1:
+    print("not found")
+else:
+    print("item is at %d position" % pos)

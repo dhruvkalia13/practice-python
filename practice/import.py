@@ -1,4 +1,4 @@
-from dhruv.classes import printHello
+from practice.classes import printHello
 
 """
 import in namespace

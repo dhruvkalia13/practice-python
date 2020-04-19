@@ -7,6 +7,8 @@ PYTHON3
 version 1:
 mMap = {}
 mMap["key"] = value
+
+asd
 """
 
 def putInMap():
