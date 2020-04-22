@@ -7,7 +7,7 @@ class CustomLinkedList:
     def insert(self, list, value):
         new_node = Node(value)
         new_node.next = None
-        if list.head == None:
+        if list.head is None:
             list.head = new_node
         else:
             last = list.head
