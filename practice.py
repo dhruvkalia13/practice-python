@@ -175,7 +175,7 @@
 # print(x)
 
 ####################
-'''
+"""
 # Modify this function to return a list of strings as defined above
 def list_benefits():
     stringsList = ["More organized code", "More readable code", "Easier code reuse", "Allowing programmers to share and connect code together"]
@@ -195,21 +195,13 @@ name_the_benefits_of_functions()
 
 ########################
 """
-keyword arguments are laways on the right side
+########################
 """
-def namedArgs(*args, **kargs):
-    print(list(args), list(kargs))
-
-
-def namedFunction(capacity, area, grassType):
-    print(capacity, area, grassType)
-
-namedArgs(1, 2, 3, 4, 5, area = 100, capacity = 6, grassType = "green")
-'''
-
 from datetime import datetime
 
 dd = '4/20/20'
 date_object = datetime.strptime(dd, "%m/%d/%y")
 d = date_object.strftime('%B%d')
 print(d)
+"""
+########################
