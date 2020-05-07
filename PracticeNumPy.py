@@ -19,7 +19,10 @@ tile - repeats the array continuously n number of times - np.tile(arr, 3)
 setdiff1d - arr1 minus(-) arr2 - np.setdiff1d(arr1, arr2)
 where - get the index of an element - np.where(a == 2)
 vectorize - vectorize any method having int arguments to handle arrays as well - np.vectorize(maxx, otypes=[float])
-
+Random Package
+np.random.random - Return random floats in the half-open interval [0.0, 1.0). - np.random.random(5,3) 
+np.random.randint - Return random ints between low and high of a given size - np.random.randint(low=1, high=10, size=(5,3))
+np.set_printoptions(precision = 3) - sets the decimal to upto 3 decimal places
 '''
 
 '''
@@ -217,4 +220,80 @@ print(arr[[1,0,2], :])
 
 ############################# How to reverse the rows of a 2D array?
 # print(arr[::-1, :])
+
+############################# How to create a 2D array containing random floats between 5 and 10?
+
+#  Create a 2D array of shape 5×3 to contain random decimal numbers between 5 and 10.
+
+'''
+# a = np.random.uniform(low=5, high=10, size=(5, 3))
+a = np.random.randint(low=5, high=10, size=(5,3)) + np.random.random(5, 3)
+print(a)
+'''
+
+'''
+a = np.random.uniform(low=5, high=10, size=(5, 3))
+
+np.set_printoptions(precision=3) # sets the precision to upto 3 decimal places
+
+print(a)
+'''
+
+############################  Limit the number of items printed in python numpy array a to a maximum of 6 elements.
+'''
+a = np.arange(15)
+np.set_printoptions(threshold=6)
+
+print(a)
+'''
+
+############################ Import the iris dataset keeping the text intact.
+
+'''
+url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
+iris_1d = np.genfromtxt(url, delimiter=',', dtype='object')
+names = ('sepallength', 'sepalwidth', 'petallength', 'petalwidth', 'species')
+
+print(iris_1d.shape)
+
+species = np.array([row[4] for row in iris_1d])
+print(species[:5])
+'''
+
+'''
+url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
+iris_2d = np.genfromtxt(url, delimiter=',', dtype='float')
+iris_2d[np.random.randint(150, size=20), np.random.randint(4, size=20)] = np.nan
+
+print("Number of missing values: \n", np.isnan(iris_2d[:, 0]).sum())
+print("Position of missing values: \n", np.where(np.isnan(iris_2d[:, 0])))
+'''
+
+########################## How to find if a given array has any null values?
+
+'''
+url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
+iris_2d = np.genfromtxt(url, delimiter=',', dtype='float', usecols=[0,1,2,3])
+iris_2d[np.random.randint(150, size=20), np.random.randint(4, size=20)] = np.nan
+print(np.isnan(iris_2d).any())
+'''
+
+url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
+iris_2d = np.genfromtxt(url, delimiter=',', dtype='float', usecols=[0,1,2,3])
+iris_2d[np.random.randint(150, size=20), np.random.randint(4, size=20)] = np.nan
+
+iris_2d[np.isnan(iris_2d)] = 0
+print(np.isnan(iris_2d).any())
+print(iris_2d[:4])
+
+
+
+
+
+
+
+
+
+
+
 
