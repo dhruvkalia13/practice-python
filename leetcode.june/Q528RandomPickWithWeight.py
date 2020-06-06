@@ -20,3 +20,6 @@ class Solution:
 # obj = Solution([3,14,1,7])
 # param_1 = obj.pickIndex()
 # print(param_1)
+
+# abs_diff_func = lambda val: abs(val - rand)
+# res = min(self.cumSum, key=abs_diff_func)
