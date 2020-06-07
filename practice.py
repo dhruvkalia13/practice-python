@@ -205,3 +205,9 @@ d = date_object.strftime('%B%d')
 print(d)
 """
 ########################
+
+nums = [1, 2, 6, 8]
+nums.app
+abs_diff_func = lambda val : abs(val - 5)
+res = min(nums, key=abs_diff_func)
+print(res)
