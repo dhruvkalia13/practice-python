@@ -1,4 +1,4 @@
-from queues import queue_using_array
+from queues.Queue_using_array import queue_using_array
 
 queue = queue_using_array.Queue()
 queue.enqueue(2)
