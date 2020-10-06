@@ -16,13 +16,15 @@ class Stack:
             new_node.next = self.head
             self.head = new_node
 
-    def pop(self):
+    def pop(self) -> Node:
         if self.head is None:
             print("Stack is empty")
+            return Node(-1)
         else:
             rem_node = self.head
             self.head = rem_node.next
             rem_node.next = None
+            return rem_node
 
     def top(self) -> Node:
         if self.head is None:
