@@ -1,6 +1,6 @@
-import stack
+from stack.Stack_using_array.stack_using_array import Stack
 
-stack = stack.Stack()
+stack = Stack()
 stack.push(2)
 stack.push(3)
 stack.push(5)
