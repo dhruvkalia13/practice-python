@@ -205,9 +205,33 @@ d = date_object.strftime('%B%d')
 print(d)
 """
 ########################
-
-nums = [1, 2, 6, 8]
-nums.app
-abs_diff_func = lambda val : abs(val - 5)
-res = min(nums, key=abs_diff_func)
-print(res)
+#
+# nums = [1, 2, 6, 8]
+# nums.app
+# abs_diff_func = lambda val : abs(val - 5)
+# res = min(nums, key=abs_diff_func)
+# print(res)
+########################
+wordlist = ["KiTe","kite","hare","Hare"]
+lower_wordlist = [word.lower() for word in wordlist]
+q = "KiTe"
+# print(q[:1] + "-" + q[2:])
+a = {"a":1, "b":2}
+# a.set
+b = {"A":1}
+c = {"b":2, "a":1}
+if a == b:
+    print("a = b")
+if a == c:
+    print("a = c")
+# c["cc"] = 3
+# print(c)
+vowels = ["a","e","i","o","u"]
+words_vow_masked = []
+for word in wordlist:
+    a = ""
+    for char in word:
+        a = a + ("*" if char in vowels else char)
+    words_vow_masked.append(a)
+# words_vow_masked = [("".join("*" if char in vowels else char) for char in word) for word in wordlist]
+print(words_vow_masked)
