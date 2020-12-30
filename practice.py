@@ -215,6 +215,25 @@ print(d)
 ########################
 
 # nums1 = [1,2]
-# print(nums1[-1])
+# nums2 = nums1[:]
+# nums1[0] = -1
+# print(nums1)
+# print(nums2)
 
+#######################
+# import copy
+# nums1 = [[1,1],[1,0]]
+# nums2 = copy.deepcopy(nums1)
+# nums1[0][0] = -1
+# print(nums1)
+# print(nums2)
 
+###################
+nums1 = [[1, 1], [1, 0]]
+nums2 = [[0] * len(nums1[0])] * len(nums1)
+for i, row in enumerate(nums1):
+    nums2[i] = row.copy()
+nums1[0][0] = -1
+
+print(nums1)
+print(nums2)
