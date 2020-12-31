@@ -229,11 +229,15 @@ print(d)
 # print(nums2)
 
 ###################
-nums1 = [[1, 1], [1, 0]]
-nums2 = [[0] * len(nums1[0])] * len(nums1)
-for i, row in enumerate(nums1):
-    nums2[i] = row.copy()
-nums1[0][0] = -1
+# nums1 = [[1, 1], [1, 0]]
+# nums2 = [[0] * len(nums1[0])] * len(nums1)
+# for i, row in enumerate(nums1):
+#     nums2[i] = row.copy()
+# nums1[0][0] = -1
+#
+# print(nums1)
+# print(nums2)
+#########################
+a = "asd-213-qwe2"
+print(a.split("-",3))
 
-print(nums1)
-print(nums2)
