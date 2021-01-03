@@ -245,10 +245,26 @@ print(d)
 # print(sum(a[1:3]))
 
 ###################
-nums = [2, 2, 2, 1, 2, 2, 1, 2, 2, 2]
-nums1 = [0 if num % 2 == 0 else 1 for num in nums]
-for i in range(len(nums1)):
-    nums1[i] += nums1[i - 1]
-print(nums1)
+# nums = [2, 2, 2, 1, 2, 2, 1, 2, 2, 2]
+# nums1 = [0 if num % 2 == 0 else 1 for num in nums]
+# for i in range(len(nums1)):
+#     nums1[i] += nums1[i - 1]
+# print(nums1)
 
 #####################
+
+nums = [[5,10],[2,5],[4,7],[3,9]]
+units = [boxType[1] for boxType in nums]
+a = {}
+for unit in units:
+    a[unit] = nums[units.index(unit)][0]
+keyset = a.keys()
+keyset = sorted(keyset, reverse=True)
+for key in keyset:
+    print(key, a[key])
+# a = dict(sorted(a.items(),reverse=True))
+# for k, v in a.items():
+#     print(k,v)
+# units = sorted(units, reverse=True)
+
+# print(a)
