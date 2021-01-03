@@ -238,6 +238,17 @@ print(d)
 # print(nums1)
 # print(nums2)
 #########################
-a = "asd-213-qwe2"
-print(a.split("-",3))
+# a = "asd-213-qwe2"
+# print(a.split("-",3))
 
+# a = [1,4,5,2,3]
+# print(sum(a[1:3]))
+
+###################
+nums = [2, 2, 2, 1, 2, 2, 1, 2, 2, 2]
+nums1 = [0 if num % 2 == 0 else 1 for num in nums]
+for i in range(len(nums1)):
+    nums1[i] += nums1[i - 1]
+print(nums1)
+
+#####################
