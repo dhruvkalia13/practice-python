@@ -13,16 +13,17 @@ class Solution:
                 else:
                     open -= 1
                     count += 2
-                    if open == 0:
-                        output.append(count)
+                    output.append(count)
+                    # if open != 0:
+                        # count = 0
         if open == 0:
             output.append(count)
         # print(output)
         return max(output)
 
 
-# print(Solution().longestValidParentheses(")()()(()("))
+print(Solution().longestValidParentheses(")()()(()("))
 print(Solution().longestValidParentheses("(()"))
-# print(Solution().longestValidParentheses("((()))"))
-# print(Solution().longestValidParentheses(")()())"))
-# print(Solution().longestValidParentheses("()(()"))
+print(Solution().longestValidParentheses("((()))"))
+print(Solution().longestValidParentheses(")()())"))
+print(Solution().longestValidParentheses("()(()"))

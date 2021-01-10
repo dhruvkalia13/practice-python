@@ -253,18 +253,92 @@ print(d)
 
 #####################
 
-nums = [[5,10],[2,5],[4,7],[3,9]]
-units = [boxType[1] for boxType in nums]
-a = {}
-for unit in units:
-    a[unit] = nums[units.index(unit)][0]
-keyset = a.keys()
-keyset = sorted(keyset, reverse=True)
-for key in keyset:
-    print(key, a[key])
+# nums = [[5,10],[2,5],[4,7],[3,9]]
+# units = [boxType[1] for boxType in nums]
+# a = {}
+# for unit in units:
+#     a[unit] = nums[units.index(unit)][0]
+# keyset = a.keys()
+# keyset = sorted(keyset, reverse=True)
+# for key in keyset:
+#     print(key, a[key])
 # a = dict(sorted(a.items(),reverse=True))
 # for k, v in a.items():
 #     print(k,v)
 # units = sorted(units, reverse=True)
 
 # print(a)
+
+##################################
+# s = "1)2)3"
+# if s.__contains__(")"):
+#     print("contains")
+#     s = (s[::-1].replace(")", "", 1))[::-1]
+#     # s = s1[::-1]
+# print(s)
+###################################
+# s = [")","(",")"]
+
+# if s.__contains__(")"):
+###################################
+
+def fitIntoRectangleBoxes(operations: [[int]]):
+    area = []
+    output = []
+    for rect in operations:
+        if len(rect) < 3:
+            continue
+        if rect[0] == 0:
+            area.append([rect[1],rect[2]])
+        elif rect[0] == 1 and rect[1] == 1 and rect[2] == 1:
+            output.append(True)
+        elif rect[0] == 1:
+            if len(area) > 0:
+                found = False
+                for box in area:
+                    if rect[1] > box[0] or rect[2] > box[1]:
+                        output.append(False)
+                        found = True
+                        break
+                if not found:
+                    output.append(True)
+            else:
+                output.append(True)
+    return output
+# print(fitIntoRectangleBoxes([[0,3,3], [0,5,2], [1,3,2],[1,2,4]]))
+# print(fitIntoRectangleBoxes([[1,1,1]]))
+print(fitIntoRectangleBoxes([[1,44289,71416],
+ [0,21,29],
+ [0,24,36],
+ [1,18,11],
+ [0,30,34],
+ [1,1,26],
+ [1,24,11],
+ [0,28,21],
+ [1,23,190],
+ [0,22,25],
+ [1,12,14],
+ [1,286,498],
+ [0,23,22],
+ [0,21,32],
+ [0,25,36],
+ [0,37,38],
+ [0,31,35],
+ [0,20,26],
+ [0,25,26],
+ [0,27,27],
+ [0,20,32],
+ [1,271,56],
+ [1,474,166],
+ [0,25,32],
+ [0,34,39],
+ [1,21,16],
+ [0,37,35],
+ [1,342,65],
+ [1,322,80],
+ [0,20,26],
+ [0,31,36],
+ [0,23,22],
+ [0,35,31],
+ [0]]))
+#################
