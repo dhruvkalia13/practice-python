@@ -9,20 +9,15 @@ class Solution:
         if not root:
             return []
         output = []
-        done = False
-        curr = [root]
-        while not done:
+        queue = [root]
+        while len(queue) != 0:
             temp = []
-            a = []
-            done = True
-            for c in curr:
-                temp.append(c.val)
-                if c.left:
-                    a.append(c.left)
-                    done = False
-                if c.right:
-                    a.append(c.right)
-                    done = False
+            for i in range(len(queue)):
+                node = queue.pop(0)
+                temp.append(node.val)
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
             output.append(temp)
-            curr = a
         return output
