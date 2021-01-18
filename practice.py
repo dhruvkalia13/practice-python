@@ -205,6 +205,8 @@ date_object = datetime.strptime(dd, "%m/%d/%y")
 d = date_object.strftime('%B%d')
 print(d)
 """
+
+
 ########################
 #
 # nums = [1, 2, 6, 8]
@@ -282,63 +284,149 @@ print(d)
 # if s.__contains__(")"):
 ###################################
 
-def fitIntoRectangleBoxes(operations: [[int]]):
-    area = []
-    output = []
-    for rect in operations:
-        if len(rect) < 3:
-            continue
-        if rect[0] == 0:
-            area.append([rect[1],rect[2]])
-        elif rect[0] == 1 and rect[1] == 1 and rect[2] == 1:
-            output.append(True)
-        elif rect[0] == 1:
-            if len(area) > 0:
-                found = False
-                for box in area:
-                    if rect[1] > box[0] or rect[2] > box[1]:
-                        output.append(False)
-                        found = True
-                        break
-                if not found:
-                    output.append(True)
-            else:
-                output.append(True)
-    return output
-# print(fitIntoRectangleBoxes([[0,3,3], [0,5,2], [1,3,2],[1,2,4]]))
-# print(fitIntoRectangleBoxes([[1,1,1]]))
-print(fitIntoRectangleBoxes([[1,44289,71416],
- [0,21,29],
- [0,24,36],
- [1,18,11],
- [0,30,34],
- [1,1,26],
- [1,24,11],
- [0,28,21],
- [1,23,190],
- [0,22,25],
- [1,12,14],
- [1,286,498],
- [0,23,22],
- [0,21,32],
- [0,25,36],
- [0,37,38],
- [0,31,35],
- [0,20,26],
- [0,25,26],
- [0,27,27],
- [0,20,32],
- [1,271,56],
- [1,474,166],
- [0,25,32],
- [0,34,39],
- [1,21,16],
- [0,37,35],
- [1,342,65],
- [1,322,80],
- [0,20,26],
- [0,31,36],
- [0,23,22],
- [0,35,31],
- [0]]))
+# def fitIntoRectangleBoxes(operations: [[int]]):
+#     area = []
+#     output = []
+#     for rect in operations:
+#         if len(rect) < 3:
+#             continue
+#         if rect[0] == 0:
+#             area.append([rect[1],rect[2]])
+#         elif rect[0] == 1 and rect[1] == 1 and rect[2] == 1:
+#             output.append(True)
+#         elif rect[0] == 1:
+#             if len(area) > 0:
+#                 found = False
+#                 for box in area:
+#                     if rect[1] > box[0] or rect[2] > box[1]:
+#                         output.append(False)
+#                         found = True
+#                         break
+#                 if not found:
+#                     output.append(True)
+#             else:
+#                 output.append(True)
+#     return output
+# # print(fitIntoRectangleBoxes([[0,3,3], [0,5,2], [1,3,2],[1,2,4]]))
+# # print(fitIntoRectangleBoxes([[1,1,1]]))
+# print(fitIntoRectangleBoxes([[1,44289,71416],
+#  [0,21,29],
+#  [0,24,36],
+#  [1,18,11],
+#  [0,30,34],
+#  [1,1,26],
+#  [1,24,11],
+#  [0,28,21],
+#  [1,23,190],
+#  [0,22,25],
+#  [1,12,14],
+#  [1,286,498],
+#  [0,23,22],
+#  [0,21,32],
+#  [0,25,36],
+#  [0,37,38],
+#  [0,31,35],
+#  [0,20,26],
+#  [0,25,26],
+#  [0,27,27],
+#  [0,20,32],
+#  [1,271,56],
+#  [1,474,166],
+#  [0,25,32],
+#  [0,34,39],
+#  [1,21,16],
+#  [0,37,35],
+#  [1,342,65],
+#  [1,322,80],
+#  [0,20,26],
+#  [0,31,36],
+#  [0,23,22],
+#  [0,35,31],
+#  [0]]))
 #################
+# i = "1"*400000
+# print(int(i,2))
+
+# print(int(a,2))
+
+##
+# def solution(a):
+#     #
+#     output = []
+#     temp = 0
+#     for i in a:
+#         if i < 0:
+#             output.append(temp)
+#             temp = 0
+#         else:
+#
+#             temp += i
+#     output.append(temp)
+#     return max(output)
+# # a = [1,2,-3,4,5,-6]
+# # a = [-8,3,0,5,-3,12]
+# a = [-1,2,1,2,0,2,1,-3,4,3,0,-1]
+# print(solution(a))
+# a = [1,2,3,4,5]
+# for i in a:
+#     print(i)
+
+# a = [1,2,3,4,5]
+# for i, v in enumerate(a):
+#     print(i, v)
+
+# a = [1,2,3,4,5]
+# for i in range(0,5):
+#     print(i, a[i])
+
+
+#
+# output = ""
+# for i in a:
+#     if i > 0:
+#         output += str(i)
+#     else:
+#         output += "*"
+# a = output.split("*")
+# for i in a:
+#     i = int(i)
+
+# def counts(a: [int], b: [int]):
+#     count = []
+#     a = sorted(a)
+#     for i in b:
+#         s = 0
+#         for j in a:
+#             if j > i: break
+#             s += 1
+#         count.append(s)
+#     return count
+
+# def counts(a: [int], b: [int]):
+#     count = []
+#     for i in b:
+#         count.append(sum(i >= j for j in a))
+#     return count
+
+# def counts(a: [int], b: [int]):
+#     count = []
+#     a = sorted(a)
+#     m = min(a)
+#     for i in b:
+#         if i < m:
+#             count.append(0)
+#             continue
+#         f = lambda list_value: abs(list_value - i)
+#         closest_value = min(a, key=f)
+#         count.append(a.index(closest_value) + 1)
+#     return count
+from bisect import bisect
+def counts(a: [int], b: [int]):
+    count = []
+    a.sort()
+    for i in b:
+        count.append(bisect(a, i))
+    return count
+a = [2,1,3]
+b = [2,1,0, 5]
+print(counts(a, b))
