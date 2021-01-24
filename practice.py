@@ -420,13 +420,23 @@ print(d)
 #         closest_value = min(a, key=f)
 #         count.append(a.index(closest_value) + 1)
 #     return count
-from bisect import bisect
-def counts(a: [int], b: [int]):
-    count = []
-    a.sort()
-    for i in b:
-        count.append(bisect(a, i))
-    return count
-a = [2,1,3]
-b = [2,1,0, 5]
-print(counts(a, b))
+
+# from bisect import bisect
+# def counts(a: [int], b: [int]):
+#     count = []
+#     a.sort()
+#     for i in b:
+#         count.append(bisect(a, i))
+#     return count
+# a = [2,1,3]
+# b = [2,1,0, 5]
+# print(counts(a, b))
+
+from collections import OrderedDict
+a = OrderedDict()
+a[1] = "a"
+a[2] = "b"
+print(a)
+a.move_to_end(1)
+a.pop(list(a)[0])
+print(a)
