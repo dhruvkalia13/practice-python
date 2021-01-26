@@ -432,11 +432,14 @@ print(d)
 # b = [2,1,0, 5]
 # print(counts(a, b))
 
-from collections import OrderedDict
-a = OrderedDict()
-a[1] = "a"
-a[2] = "b"
-print(a)
-a.move_to_end(1)
-a.pop(list(a)[0])
-print(a)
+# from collections import OrderedDict
+# a = OrderedDict()
+# a[1] = "a"
+# a[2] = "b"
+# print(a)
+# a.move_to_end(1)
+# a.pop(list(a)[0])
+# print(a)
+
+a = {1:2,3:4,5:6}
+print(a.values())
