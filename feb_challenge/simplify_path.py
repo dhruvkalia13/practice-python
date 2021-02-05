@@ -10,10 +10,5 @@ class Solution:
                     fresh.pop()
             else:
                 fresh.append(item)
-        out = ''
-        for item in fresh:
-            out += '/'
-            out += item
-        if out:
-            return out
-        return '/'
+        delimiter = '/'
+        return '/' + delimiter.join(fresh)
