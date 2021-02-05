@@ -206,7 +206,6 @@ d = date_object.strftime('%B%d')
 print(d)
 """
 
-
 ########################
 #
 # nums = [1, 2, 6, 8]
@@ -441,5 +440,67 @@ print(d)
 # a.pop(list(a)[0])
 # print(a)
 
-a = {1:2,3:4,5:6}
-print(a.values())
+# a = [9,2]
+# a.remove(a[-1])
+
+# a = [9,1,2]
+# print(a[::-1])
+
+# print(a.isdigit())
+
+# a = "hello! how are oyu"
+# words = a.split(" ")
+# print(words)
+
+# a = 23
+# b = format(a, "b")
+# print(b + "asd")
+# print(b)
+#
+# a = "1001"
+# print(a.count("1"))
+
+# a = [1,2,3,1]
+# temp = set()
+# print(temp.add(1))
+# print(temp.add(2))
+
+# a = ["1","2","3"]
+# b = ["2","1","2"]
+# print(sorted(a) == sorted(b))
+
+# a = [1,2,2,1]
+# b = [2,2]
+# print(set(a+b))
+
+
+# a = [1, 2, 2, 1]
+# i1 = 1
+# i2 = 2
+# print(max(i1, i2))
+
+# a = [2,4,6]
+# from stack import LinkedStack
+# a = LinkedStack()
+# a.push(2)
+# a.push(4)
+# a.push(6)
+# a.push(8)
+# print(a.pop())
+
+# a = [2,4,6]
+# #
+# print(a.pop())
+# a.re
+#
+# a = "a"
+# print(not a)
+
+# delimiter = '/'
+# a = ["a","b"]
+#
+# print(delimiter.join(a))
+
+a = {1:2}
+for i in a:
+    print(i, val)
