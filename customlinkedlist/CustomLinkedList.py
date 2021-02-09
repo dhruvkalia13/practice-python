@@ -1,4 +1,4 @@
-from customlinkedlist.Node import Node
+from customlinkedlist.CustomLinkedList import Node
 
 
 class CustomLinkedList:

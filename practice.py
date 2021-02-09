@@ -501,6 +501,24 @@ print(d)
 #
 # print(delimiter.join(a))
 
-a = {1:2}
-for i in a:
-    print(i, val)
+# a = [1,2,3]
+# print(a.pop())
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+

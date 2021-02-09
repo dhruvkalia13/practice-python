@@ -1,4 +1,4 @@
-from customlinkedlist.CustomLinkedList import CustomLinkedList
+import CustomLinkedList
 obj = CustomLinkedList()
 list = CustomLinkedList()
 # obj.insert(list, 4)
