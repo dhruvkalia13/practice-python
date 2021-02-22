@@ -206,6 +206,7 @@ d = date_object.strftime('%B%d')
 print(d)
 """
 
+
 ########################
 #
 # nums = [1, 2, 6, 8]
@@ -504,21 +505,52 @@ print(d)
 # a = [1,2,3]
 # print(a.pop())
 
+# a = [1,2,3]
+# a.append(4)
+
+# from collections import deque
+# a = deque([2,3,4])
+#
+# print(a.pop())
+# print(a)
+# a = [-1,-2,0,2,3,-3]
+# s = "abd23"
+# out = [i for i in s if not i.isdigit()]
+
+# i = "123"
+# if i:
+#     print("asd")
+
+# a = {1:"s", 2:"t"}
+# print([key for key, value in a.items() if value == "t"][0])
+# print(list(filter(lambda k: k == "s",a)))
+
+# from collections import defaultdict
+# a = [1,2,3,4,3,2]
+# dd = defaultdict(a)
+# print(dd)
+
+def solution(a):
+    final_res = []
+    count = 0
+    temp_res = []
+    temp_res.append(a[0])
+    while final_res != temp_res:
+        for i in range(1,len(a) - 1):
+            count = 0
+            if a[i] > a[i - 1] and a[i] > a[i+1]:
+                count += 1
+                temp_res.append(a[i] - 1)
+            elif a[i] < a[i - 1] and a[i] < a[i+1]:
+                count += 1
+                temp_res.append(a[i] + 1)
+            else:
+                temp_res.append(a[i])
+                temp_res.append(a[-1])
+                final_res.extend(temp_res)
+    return final_res
+print(solution([4850,100,30,30,100,50,100]))
 
 
 
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
