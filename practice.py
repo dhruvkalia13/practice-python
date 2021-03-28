@@ -530,27 +530,331 @@ print(d)
 # dd = defaultdict(a)
 # print(dd)
 
-def solution(a):
-    final_res = []
-    count = 0
-    temp_res = []
-    temp_res.append(a[0])
-    while final_res != temp_res:
-        for i in range(1,len(a) - 1):
-            count = 0
-            if a[i] > a[i - 1] and a[i] > a[i+1]:
-                count += 1
-                temp_res.append(a[i] - 1)
-            elif a[i] < a[i - 1] and a[i] < a[i+1]:
-                count += 1
-                temp_res.append(a[i] + 1)
-            else:
-                temp_res.append(a[i])
-                temp_res.append(a[-1])
-                final_res.extend(temp_res)
-    return final_res
-print(solution([4850,100,30,30,100,50,100]))
+# def solution(a):
+#     final_res = []
+#     count = 0
+#     temp_res = []
+#     temp_res.append(a[0])
+#     while final_res != temp_res:
+#         for i in range(1,len(a) - 1):
+#             count = 0
+#             if a[i] > a[i - 1] and a[i] > a[i+1]:
+#                 count += 1
+#                 temp_res.append(a[i] - 1)
+#             elif a[i] < a[i - 1] and a[i] < a[i+1]:
+#                 count += 1
+#                 temp_res.append(a[i] + 1)
+#             else:
+#                 temp_res.append(a[i])
+#                 temp_res.append(a[-1])
+#                 final_res.extend(temp_res)
+#     return final_res
+# print(solution([4850,100,30,30,100,50,100]))
+
+# a = [2,1,4]
+# b = [[2,3],[2,1,4],[3,2]]
+# print(a in b)
+# a = "asd\n"
+# b = a.replace("\n","123")
+
+# import re
+#
+# def firstOccurrence(s, x):
+#     if "*" in x:
+#         x = x.replace("*", ".")
+#     out = re.search(x, s)
+#     if not out:
+#         return -1
+#     return out.start()
+#
+# print(firstOccurrence("xabcdey","ab*de"))
+# print(firstOccurrence("juliasamanthasamanthajulia","ant*as"))
+
+# def calculateAmount(prices):
+#     # Write your code here
+#     res = []
+#     print(prices)
+#     g_min = prices[0]
+#     for i,v in enumerate(prices):
+#         if i == 0:
+#             res.append(v)
+#             continue
+#         if v < g_min:
+#             g_min = v
+#             res.append(0)
+#         else:
+#             res.append(v - g_min)
+#     return sum(res)
+# print(calculateAmount([4,9,2,3]))
+
+# def calculateRegion(arr):
+#     left = getNeightbourSum(arr)
+#     arr.reverse()
+#     right = getNeightbourSum(arr)
+#     return left + right + len(arr)
+#
+# def getNeightbourSum(arr):
+#     s = []
+#     ans = 0
+#     for i in range(len(arr)):
+#         count = 0
+#         while (s and s[-1][0] <= arr[i]):
+#             count += s[-1][1] + 1
+#             s.pop()
+#         ans+=count
+#         s.append([arr[i], count])
+#     return ans
+#
+# print(calculateRegion([]))
+
+# from string import ascii_uppercase
+#
+# def checkDetailsAreValid(accountNumber, bankCode):
+#     # Write your code here
+#     empty_string = ""
+#     space_string = " "
+#     # validations
+#     if space_string in bankCode:
+#         bankCode = bankCode.replace(space_string, empty_string)
+#     if space_string in accountNumber:
+#         accountNumber = accountNumber.replace(space_string, empty_string)
+#     account_split = accountNumber.split("-")
+#     checksum = account_split[0]
+#     account_number = account_split[1]
+#     if not str(checksum).isdigit() or len(account_number) != 7 or len(checksum) > 2 or (empty_string.join(bankCode[0:2])).isdigit():
+#         return empty_string
+#     weights = [7, 3, 1, 5, 2, 4, 8, 6, 1, 6, 5]
+#     main = accountNumber + bankCode
+#     nxt = main[(main.index("-") + 1):len(main)]
+#     ans = 0
+#     for i, val in enumerate(nxt):
+#         if str(val).isalpha():
+#             ans += weights[i] * (ascii_uppercase.index(val) + 10)
+#         else:
+#             ans += weights[i] * int(val)
+#     if ans % 2 == 0:
+#         ans = ans % 89
+#     else:
+#         ans = ans % 89
+#         ans -= 89
+#     if len(str(abs(ans))) != 2:
+#         return "0" + str(abs(ans))
+#     return str(abs(ans))
+#
+# print(checkDetailsAreValid("18-7654321","AB11"))
+
+# def processWithdrawal(wallets, amount, currency, otherCurrencies):
+#     # cloning the wallet
+#     draftWallet = wallets.copy()
+#     amount_left = 0
+#     if draftWallet[currency] >= amount:
+#         draftWallet[currency] -= amount
+#         amount = 0
+#     elif draftWallet[currency] < amount:
+#         amount_left = amount - draftWallet[currency]
+#         draftWallet[currency] = 0.00
+#         for index, otherCurrency in enumerate(otherCurrencies):
+#             otherCurrency_Amount = 0
+#             exchangeRate_Value = getMidMarketRate(currency, otherCurrency)
+#             otherCurrency_Amount = float(amount_left * exchangeRate_Value)
+#             if draftWallet[otherCurrency] >= otherCurrency_Amount:
+#                 draftWallet[otherCurrency] -= otherCurrency_Amount
+#                 amount_left = 0
+#                 break
+#             elif draftWallet[otherCurrency] != 0:
+#                 exchangeRate_Value = getMidMarketRate(otherCurrency, currency)
+#                 otherCurrency_Amount = float(draftWallet[otherCurrency] * exchangeRate_Value)
+#                 amount_left = amount_left - otherCurrency_Amount
+#                 draftWallet[otherCurrency] = 0
+#     if amount_left == 0 or amount == 0:
+#         return draftWallet
+#     else:
+#         return wallets
+#
+# def getValidFormat(outputList, wallets):
+#     output = ''
+#     for key in outputList:
+#         amount = str(round(float(wallets[key]), 3))
+#         if wallets[key] != 0 or wallets[key] != 0.0:
+#             if len(amount.split('.')[1]) == 3:
+#                 if float(amount[-1]) > 0:
+#                     amount = amount[:-2] + str(int(amount[-2]) + 1)
+#                 amount = str(round(float(amount), 2))
+#             if len(amount.split('.')[1]) < 3:
+#                 if amount[-1] == '0':
+#                     print(amount)
+#                     amount += '0'
+#             if output != '':
+#                 output += ', '
+#             output += amount + ' ' + key
+#     return output
+#
+# def printBalances(requests):
+#     # Currency List
+#     currencies = ["USD", "EUR", "GBP"]
+#     output_order = []
+#     # Creating wallet
+#     wallets = {i: 0 for i in currencies}
+#     output = ''
+#     for req in requests:
+#         reqDetails = req.split(',')
+#         request_action = reqDetails[0]
+#         request_currency = reqDetails[-1]
+#         request_amount = float(reqDetails[1])
+#         if not request_currency in output_order:
+#             output_order.append(request_currency)
+#         # Adding money to the respective wallet
+#         if request_action == 'DEPOSIT':
+#             wallets[request_currency] += request_amount
+#         # Calculating the withdrawal amount and updating the wallet
+#         elif request_action == 'WITHDRAW':
+#             other_currencies = [i for i in currencies if i != request_currency]
+#             wallets = processWithdrawal(wallets, request_amount, request_currency, other_currencies)
+#     # Getting the proper format output
+#     output = getValidFormat(output_order, wallets)
+#     return output
+# text = "Hello<script>asdhnaolsd</script>, How are you"
+
+# 3
+# import sys
+# text = "".join(list(sys.stdin))
+# first_part = text[:text.index("<script")]
+# second_part = text[text.index("</script>")+9:]
+# output = first_part + second_part
+# print(output)
+#
+# # 2
+# numbers = ["9795526789839145","2861747566959730","4498854833783559","6301982162016598","1131197164065322"]
+#
+# import sys
+# numbers = list(sys.stdin)[1:]
+# for value in numbers:
+#     card = value.strip("\n")
+#     odd, even = 0, 0
+#     for idx, val in enumerate(card):
+#         val = int(val)
+#         if idx % 2 != 0:
+#             odd += val
+#         elif 2 * val > 9:
+#             even += sum([int(i) for i in str(2*val)])
+#         else:
+#             even += (2 * val)
+#     if (odd + even) % 10 == 0:
+#         print("Yes")
+#     else:
+#         print("No")
+
+# d= "asd. hello"
+# d_new = ""
+# for i in d:
+#     if i.isalpha():
+#         d_new += i
+# print(d_new)
+# import re
+# def no(first, second):
+#     s = set([(re.sub(r"[^a-zA-Z0-9-']+", '', i)) for i in first.split()])
+#     y = set([(re.sub(r"[^a-zA-Z0-9-']+", '', i))for i in second.split()])
+#     print(s)
+#     print(y)
+#     return len(s.intersection(y))
+#     # print(s)
+#     # print(y)
+# print(no("Yes, we all you're really like-pizza.", "I like we-pizza a lot."))
+# # print(no("", ""))
+
+# def nsew2(directions):
+#     x, y = 0, 0
+#     points = {(0, 0): 1}
+#     out = set([])
+#     count = 0
+#     for i in directions:
+#         if i.islower():
+#             continue
+#         if i == "N":
+#             y += 1
+#         if i == "W":
+#             x -= 1
+#         if i == "E":
+#             x += 1
+#         if i == "S":
+#             y -= 1
+#         if (x, y) in points and points[(x, y)] == 1:
+#             count += 1
+#             points[(x, y)] += 1
+#         else:
+#             points[(x, y)] = 1
+#     return count
+# print(no("WEWNES")) #3, 2
+
+# def no(products, productPrices, productSold, soldPrice):
+#     a = {product:productPrices[i] for i, product in enumerate(products)}
+#     b = {product: soldPrice[i] for i, product in enumerate(productSold)}
+#     count = 0
+#     for prod, price in b.items():
+#         if prod not in a or price != a[prod]:
+#             count += 1
+#     return count
+
+# def guess_words_from_french(frenchWords, englishWords):
+#     if not frenchWords or not englishWords:
+#         return 'Please add some ' + 'French' if not frenchWords else 'English' + 'words so that you can start the ' \
+#                                                                                  'game :) '
+#     assert len(frenchWords) == len(englishWords)
+#         # raise Exception("sample exception")
+#     translationDict = {frenchWord: englishWords[idx] for idx, frenchWord in enumerate(frenchWords)}
+#
+#     for french_word in frenchWords:
+#         if not french_word.isalpha() or french_word == "":
+#             continue
+#         userGuess = input('What is the English word for ' + french_word + ' ? ')
+#         if userGuess == translationDict[french_word]:
+#             print('Wohoo, you are right !!!!!!')
+#         else:
+#             frenchWords.append(french_word)
+#             print("Ouch, It was a wrong guess, but you can do it, let's try to guess another word :)")
+#     print('What, you completed the whole game, CONGRATS FRENCH KING...')
+
+    # print("Welcome to the game, let's get you started")
+    # guesseList = frenchWords[:]
+    # while guesseList:
+    #
+    #     for englishWord, frenchTranslation in translationDict.items():
+    #         if frenchTranslation in guesseList:
+    #             userGuess = input('What is the English word for ' + englishWord + ' ? ')
+    #             if userGuess == frenchTranslation:
+    #                 guesseList.remove(userGuess)
+    #                 print('Wohoo, you are right !!!!!!')
+    #             else:
+    #                 guesseList.append(englishWord)
+    #                 print("Ouch, It was a wrong guess, but you can do it, let's try to guess another word :)")
+    # print('What, you completed the whole game, CONGRATS FRENCH KING...')
+    # return
+
+
+# TranslationCheck.checkTheUser()
+# guess_words_from_french(['123', '1Chien', 'Poisson'], ['Cat', 'Dog', 'Fish'])
 
 
 
+def Reversesort(L):
+    cost = 0
+    for i in range(1, len(L)):
+        # print(L)
+        j = L.index(min(L[i:len(L)+1]))
+        print(i, j)
+        cost += (i - j + 1)
+        a = L[0:i+1]
+        b = L[i:j+1]
+        a.extend(b[::-1])
+        L = a.copy()
+        print(L)
+    return cost
+
+
+n = int(input())
+for i in range(1, n + 1):
+    l = int(input())
+    inp = input().split(" ")
+    out = Reversesort(inp)
+    print("Case #" + str(i) + ": " + str(out))
 
