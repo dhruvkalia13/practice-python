@@ -836,25 +836,104 @@ print(d)
 
 
 
-def Reversesort(L):
-    cost = 0
-    for i in range(1, len(L)):
-        # print(L)
-        j = L.index(min(L[i:len(L)+1]))
-        print(i, j)
-        cost += (i - j + 1)
-        a = L[0:i+1]
-        b = L[i:j+1]
-        a.extend(b[::-1])
-        L = a.copy()
-        print(L)
-    return cost
+# def Reversesort(L):
+#     cost = 0
+#     for i in range(1, len(L)):
+#         # print(L)
+#         j = L.index(min(L[i:len(L)+1]))
+#         print(i, j)
+#         cost += (i - j + 1)
+#         a = L[0:i+1]
+#         b = L[i:j+1]
+#         a.extend(b[::-1])
+#         L = a.copy()
+#         print(L)
+#     return cost
+#
+#
+# n = int(input())
+# for i in range(1, n + 1):
+#     l = int(input())
+#     inp = input().split(" ")
+#     out = Reversesort(inp)
+#     print("Case #" + str(i) + ": " + str(out))
+# def test(a):
+#     a.append(4)
+#
+# a = [1,2,3]
+# test(a)
+# print(a)
+
+# map = {}
+# map[0] = 'zero'
+# map[1] = 'one'
+# map[2] = 'two'
+# a = map.pop(1)
+# # print(map)
+#
+# grid = [["*"]*3]*3
+# grid[0][0] = "_"
+# print(grid)
+#
+# grid1 = [["*", "*", "*"],["*", "*", "*"], ["*", "*", "*"]]
+# grid1[0][0] = "_"
+# print(grid1)
 
 
-n = int(input())
-for i in range(1, n + 1):
-    l = int(input())
-    inp = input().split(" ")
-    out = Reversesort(inp)
-    print("Case #" + str(i) + ": " + str(out))
+
+# TODO Quick sort
+# worst case - n square (already sorted)
+# best case - nlogn
+def quicksort(nums):
+    helper_quick_sort(nums, 0, len(nums)-1)
+
+def helper_quick_sort(nums, start, end):
+    if start < end:
+        pivot = partition(nums, start, end)
+        helper_quick_sort(nums, start, pivot - 1)
+        helper_quick_sort(nums, pivot + 1, end)
+
+def partition(nums, start, end):
+    middle = (start + end) // 2
+    # swapping middle with end
+    nums[middle], nums[end] = nums[end], nums[middle]
+    pivot = nums[end]
+    boundary = start
+    # Move items less than pivt to the left
+    for index in range(start, end):
+        if nums[index] < pivot:
+            nums[boundary], nums[index] = nums[index], nums[boundary]
+            boundary += 1
+    # Exchange the pivot item and the boundary item
+    nums[boundary], nums[end] = nums[end], nums[boundary]
+    return boundary
+
+# nums = [2,3,1,4,5]
+# quicksort(nums)
+# print(nums)
+
+## Binary search
+# best case - O(logn)
+# worst case - O(logn)
+def binary_search(nums, element):
+    mid = 0
+    start = 0
+    end = len(nums)
+    step = 0
+
+    while start <= end:
+        step = step+1
+        mid = (start + end) // 2
+
+        if element == nums[mid]:
+            return mid
+
+        if element < nums[mid]:
+            end = mid - 1
+        else:
+            start = mid + 1
+    return -1
+
+print(binary_search([2,3,1,4,5],1))
+
 
