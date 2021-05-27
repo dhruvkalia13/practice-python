@@ -884,56 +884,10 @@ print(d)
 # TODO Quick sort
 # worst case - n square (already sorted)
 # best case - nlogn
-def quicksort(nums):
-    helper_quick_sort(nums, 0, len(nums)-1)
-
-def helper_quick_sort(nums, start, end):
-    if start < end:
-        pivot = partition(nums, start, end)
-        helper_quick_sort(nums, start, pivot - 1)
-        helper_quick_sort(nums, pivot + 1, end)
-
-def partition(nums, start, end):
-    middle = (start + end) // 2
-    # swapping middle with end
-    nums[middle], nums[end] = nums[end], nums[middle]
-    pivot = nums[end]
-    boundary = start
-    # Move items less than pivt to the left
-    for index in range(start, end):
-        if nums[index] < pivot:
-            nums[boundary], nums[index] = nums[index], nums[boundary]
-            boundary += 1
-    # Exchange the pivot item and the boundary item
-    nums[boundary], nums[end] = nums[end], nums[boundary]
-    return boundary
+# def quicksort(nums)
 
 # nums = [2,3,1,4,5]
 # quicksort(nums)
 # print(nums)
-
-## Binary search
-# best case - O(logn)
-# worst case - O(logn)
-def binary_search(nums, element):
-    mid = 0
-    start = 0
-    end = len(nums)
-    step = 0
-
-    while start <= end:
-        step = step+1
-        mid = (start + end) // 2
-
-        if element == nums[mid]:
-            return mid
-
-        if element < nums[mid]:
-            end = mid - 1
-        else:
-            start = mid + 1
-    return -1
-
-print(binary_search([2,3,1,4,5],1))
 
 
